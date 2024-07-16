@@ -1,5 +1,9 @@
 import DashContent from "../../../component/shared/DashContent/DashContent";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdOutlineAppRegistration } from "react-icons/md";
+import { RxHome } from "react-icons/rx";
+import { NavLink } from "react-router-dom";
+import UserMenu from "../UserMenu/UserMenu";
+import AgentMenu from "../AgentMenu/AgentMenu";
 
 const Dashboard = () => {
     return (
@@ -31,23 +35,31 @@ const Dashboard = () => {
       
     </div>
     {/* Page content here */}
-    <div className="flex items-center justify-center mt-6">
+    <div className="flex items-center justify-center mt-10">
         <DashContent />
     </div>
   </div>
 
   <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay" aria-label="close sidebar"></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-4">
+        <ul className="menu bg-base-200 min-h-full w-80 p-4 relative">
           {/* Close Icon */}
           <li className="flex justify-end items-end">
-            <label htmlFor="my-drawer-3" className="hover:bg-red-400">
+            <label htmlFor="my-drawer-3" className="hover:bg-red-400 hover:text-white absolute top-1 z-10">
               <MdClose className="text-xl"/>
             </label>
           </li>
           {/* Sidebar content here */}
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
+          <li><NavLink className={({isActive}) => isActive ? 'flex items-center text-xl bg-slate-800 text-green-400' : 'flex items-center text-xl'}><RxHome /> Home</NavLink></li>
+          <li><NavLink className={({isActive}) => isActive ? 'flex items-center text-xl bg-slate-800 text-green-400' : 'flex items-center text-xl'}><MdOutlineAppRegistration /> Registration</NavLink></li>
+
+          <div className="divider"></div>
+          {/* user dash */}
+          <UserMenu />
+
+          <div className="divider"></div>
+          {/* agent dash */}
+          <AgentMenu />
         </ul>
       </div>
 </div>
