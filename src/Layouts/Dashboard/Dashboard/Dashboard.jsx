@@ -4,6 +4,7 @@ import { RxHome } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
 import UserMenu from "../UserMenu/UserMenu";
 import AgentMenu from "../AgentMenu/AgentMenu";
+import AdminMenu from "../AdminMenu/AdminMenu";
 
 const Dashboard = () => {
     return (
@@ -60,6 +61,10 @@ const Dashboard = () => {
           <div className="divider"></div>
           {/* agent dash */}
           <AgentMenu />
+
+          <div className="divider"></div>
+          {/* admin dash */}
+          <AdminMenu />
         </ul>
       </div>
 </div>
